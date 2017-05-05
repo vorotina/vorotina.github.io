@@ -110,7 +110,7 @@ const select = new Select({
 	<script type="text/javascript" src="assets/prism.js"></script>
 	<script type="text/javascript" src="assets/vanilla-select.min.js"></script>
 	<script>
-		const source = [{
+		var source = [{
 				icon: 'fa fa-font',
 				value: 'Abril Fatface'
 			},
@@ -123,16 +123,16 @@ const select = new Select({
 				value: 'Amatic SC'
 			}
 		];
-		let select = Array.from(document.querySelectorAll('[ref="select"]')).map(el => {
-				return new Select({
-					placeholder: 'Select Font',
-					dataset: source,
-					search: true,
-					noResults: 'No results found',
-					onSelected: item => console.log(item)
-			}).componentMount({
-				el: el
-			});
+		var select = new Select({
+			placeholder: 'Select Font',
+			dataset: source,
+			search: true,
+			noResults: 'No results found',
+			onSelected: function onSelected(item) {
+				return console.log(item);
+			}
+		})["componentMount"]({
+			el: document.querySelector('[ref="select"]')
 		});
 	</script>
 
