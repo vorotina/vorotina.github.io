@@ -72,6 +72,8 @@ const source = [{
 const select = new Select({
 	placeholder: 'Select Font',
 	dataset: source,
+	search: true,
+	noResults: 'No results found',
 	onSelected: item => callback(item)
 }).componentMount({
 	el: document.querySelector('[ref="select-box"]')
@@ -109,15 +111,15 @@ const select = new Select({
 	<script type="text/javascript" src="assets/vanilla-select.min.js"></script>
 	<script>
 		const source = [{
-				icon: 'fa-font',
+				icon: 'fa fa-font',
 				value: 'Abril Fatface'
 			},
 			{
-				icon: 'fa-font',
+				icon: 'fa fa-font',
 				value: 'Allura'
 			},
 			{
-				icon: 'fa-font',
+				icon: 'fa fa-font',
 				value: 'Amatic SC'
 			}
 		];
@@ -125,6 +127,8 @@ const select = new Select({
 				return new Select({
 					placeholder: 'Select Font',
 					dataset: source,
+					search: true,
+					noResults: 'No results found',
 					onSelected: item => console.log(item)
 			}).componentMount({
 				el: el
