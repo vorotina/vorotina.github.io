@@ -79,6 +79,7 @@ const select = new Select({
 	el: document.querySelector('[ref="select-box"]')
 });
 </code></pre>
+
 			</div>
 
 		</section>
@@ -94,6 +95,21 @@ const select = new Select({
 			<p><a href="https://jsfiddle.net/5y2stLn6/">JSFiddle</a></p>
 		</section>
 
+		<section>
+			<p>
+				Or if you want to set default selected item:
+			</p>
+<pre><code class="  language-javascript">
+const select = new Select({
+	dataset: source,
+	selected: 'Allura',
+	onSelected: item => callback(item)
+}).componentMount({
+	el: document.querySelector('[ref="select-box"]')
+});
+</code></pre>
+			<div class="select-box" ref="select2"></div>
+		</section>
 		<section>
 
 			<header>
@@ -134,6 +150,16 @@ const select = new Select({
 			}
 		})["componentMount"]({
 			el: document.querySelector('[ref="select"]')
+		});
+
+		var select2 = new Select({
+			dataset: source,
+			selected: source[1].value,
+			onSelected: function onSelected(item) {
+				return console.log(item);
+			}
+		})["componentMount"]({
+			el: document.querySelector('[ref="select2"]')
 		});
 	</script>
 
